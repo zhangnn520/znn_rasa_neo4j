@@ -2,10 +2,7 @@
 import requests
 import json
 
-
-# url = 'http://127.0.0.1:5056/webhooks/rest/webhook'
-url = 'http://localhost:5055/webhook'
-# url = 'http://localhost:5055/webhook'
+url = 'http://localhost:5005/webhooks/rest/webhook'
 
 lis = ["治疗周期", '哮喘怎么预防', '治疗方式']
 

@@ -43,7 +43,7 @@ docker run \
 
 ## 三、软件环境
 
-​	requirment.txt如下所示，这里的rasa为1.3版本，可以轻松改成2和3版本，后续rasa train 、shell和run执行命令与rasa3相似。具体安装包版本可以参照conda.txt。
+​	requirment.txt如下所示，这里的rasa为1.3版本。具体安装包版本可以参照conda.txt。
 
 ```
 	py2neo==2021.1.5
@@ -79,15 +79,46 @@ docker run \
 
 `rasa shell --endpoints conf/endpoints.yml`
 
+### 5.3、请求服务
+
+`rasa run --enable-api --cors * 5005`
+
+可以执行以下代码
+
+```
+# conding=utf-8
+import requests
+import json
+
+url = 'http://localhost:5005/webhooks/rest/webhook'
+
+lis = ["治疗周期", '哮喘怎么预防', '治疗方式']
+
+# 耳鸣怎么预防
+data = {"message": "哮喘怎么预防"}
+
+message = requests.post(url=url, json=data)
+print(message.json())
+print(message.json()[0])
+print(json.loads(message.json()[0]['text']))
+
+```
+
+![image-20230221202730148](E:\ENOCH-2022\RASA\Neo4j-Rasa-master\img\image-20230221202730148.png)
+
+亦可采用接口请求
+
+![image-20230221202814075](E:\ENOCH-2022\RASA\Neo4j-Rasa-master\img\image-20230221202814075.png)
+
 ## 六、单轮和多轮对话
 
 ### 6.1、多轮对话
 
-<img src="img\image-20230221174707486.png" alt="image-20230221174707486" style="zoom: 80%;" />
+<img src="./img/image-20230221174707486.png" alt="image-20230221174707486" style="zoom: 80%;" />
 
 ### 6.2、单轮对话
 
-<img src="img\image-20230221174823325.png" alt="image-20230221174823325" style="zoom: 50%;" />
+<img src="./img/image-20230221174823325.png" alt="image-20230221174823325" style="zoom: 50%;" />
 
 ### 7、交流联系
 
