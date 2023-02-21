@@ -1,0 +1,58 @@
+intents:
+  - greet
+  - goodbye
+  - with_has_symptom
+  - with_cause
+  - with_acompany_with
+  - with_Food
+  - with_Drug
+  - with_prevent
+  - with_cure_lasttime
+  - with_cure_way
+  - with_cured_prob
+  - with_easy_get
+  - with_need_check
+  - with_belong
+  - with_usefulness
+
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - question_parser
+  - defualt_action
+
+
+templates:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+
+entities:
+  - disease
+  - department
+  - check
+  - drug
+  - food
+  - producer
+  - symptom
+
+
+slots:
+  disease:
+    type: unfeaturized
+  department:
+    type: unfeaturized
+  check:
+    type: unfeaturized
+  drug:
+    type: unfeaturized
+  food:
+    type: unfeaturized
+  producer:
+    type: unfeaturized
+  symptom:
+    type: unfeaturized
