@@ -33,12 +33,12 @@
 ​	redis安装好后才能进行下步操作，请注意这里的redis并没有设置账号和密码。https://www.jianshu.com/p/c181a7109f67
 
 ```
-docker run \
--p 6379:6379 \
---name redis \
--v linux 目录/redis_docker/redis.conf:/etc/redis/redis.conf \
--v linux 目录/redis_docker/data:/data \
--d redis redis-server /etc/redis/redis.conf --appendonly yes\
+	docker run \
+	-p 6379:6379 \
+	--name redis \
+	-v linux 目录/redis_docker/redis.conf:/etc/redis/redis.conf \
+	-v linux 目录/redis_docker/data:/data \
+	-d redis redis-server /etc/redis/redis.conf --appendonly yes\
 ```
 
 ## 三、软件环境
@@ -81,34 +81,40 @@ docker run \
 
 ### 5.3、请求服务
 
-`rasa run --enable-api --cors * 5005`
+请求服务需要启动下面的命令`rasa run --enable-api --cors * 5005`
 
-可以执行以下代码
+#### 5.3.1、直接用request包请求
 
 ```
 # conding=utf-8
 import requests
 import json
-
 url = 'http://localhost:5005/webhooks/rest/webhook'
-
 lis = ["治疗周期", '哮喘怎么预防', '治疗方式']
-
 # 耳鸣怎么预防
 data = {"message": "哮喘怎么预防"}
-
 message = requests.post(url=url, json=data)
 print(message.json())
 print(message.json()[0])
 print(json.loads(message.json()[0]['text']))
-
 ```
 
 ![image-20230221202730148](./img/image-20230221202730148.png)
 
-亦可采用接口请求
+#### 5.3.2、采用apipost调用接口
 
 ![image-20230221202814075](./img/image-20230221202814075.png)
+
+#### 5.3.3、rasa_ui调用接口
+
+```
+# rasa_ui使用方法
+1. 启动Rasa API（允许跨域）
+rasa run --enable-api --cors "*" 5005
+2. 直接打开页面`index.html`
+```
+
+![image-20230221213748216](./img/image-20230221213748216.png)
 
 ## 六、单轮和多轮对话
 
@@ -120,7 +126,7 @@ print(json.loads(message.json()[0]['text']))
 
 <img src="./img/image-20230221174823325.png" alt="image-20230221174823325" style="zoom: 50%;" />
 
-### 7、交流联系
+## 7、交流联系
 
 ​	QQ：1356922176
 
