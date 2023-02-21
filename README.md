@@ -2,8 +2,7 @@
 
 原项目git地址：https://github.com/SonOfGod777/Neo4j-Rasa
 
-我的项目打包地址：https://pan.baidu.com/s/1h3RPpCOw2Ww0Blti1qK5EA?pwd=6666  提取码：6666
-
+我的项目百度云盘地址：https://pan.baidu.com/s/1Ti8nVC_Brh4hu4WumRcfww?pwd=6666 提取码：6666
 ## 一、环境准备
 
 ​	研究环境 默认ubuntu20.04TL，conda环境，py36
@@ -129,7 +128,4 @@ rasa run --enable-api --cors "*" 5005
 ## 7、交流联系
 
 ​	QQ：1356922176
-
-
-
 
